@@ -1,7 +1,7 @@
 ---
 tags: string manipulation
 languages: ruby
-resources: 0
+resources: 2
 ---
 
 ##Pig Latin Translator
@@ -23,6 +23,26 @@ To make this method for Mr. Page you're going to need to make a method that,
 - Translates words that start with vowels correctly
   - "egg" → "eggay"
 
+### To Solve This
+
+This lab requires a lot for one method.  It requires every word of a string to be potentially translated into a string.  It also needs whole sentences to be changed. This method needs a helper that will only handle each individual word.  The `to_pig_latin` method then only cares about converting a sentence and delegates each word to the method that handles translating each word.
+
+
+
+The methods used,
+- [`include?`](http://www.ruby-doc.org/core-2.1.2/Array.html#method-i-include-3F) which checks whether or not the argument is in the object
+  - works on strings and arrays
+  - `[ "a", "b", "c" ].include?("b")   #=> true`
+- [`split`](http://www.ruby-doc.org/core-2.1.2/String.html#method-i-split) which divides a string into pieces and returns an array of those pieces
+  - without an argument `split` divides a string by every white space
+    - `" now's  the time".split        #=> ["now's", "the", "time"]`
+  - with an argument `split` divides a string based on that argument
+    - `" this time".split("")   #=> [" ", "t", "h", "i", "s", " ", "t", "i", "m", "e"]`
+- [`join`](http://www.ruby-doc.org/core-2.1.2/Array.html#method-i-join) which takes every item in an array and makes a string out of them
+  - without an argument `join` will create a string of every item next to one another
+    - `[ "a", "b", "c" ].join        #=> "abc"`
+  - with an argument `join` will space every item in the string with that argument between them
+    - `[ "a", "b", "c" ].join("-")   #=> "a-b-c"`
 
 Now that you're prepared
 - Fork and clone this repo
