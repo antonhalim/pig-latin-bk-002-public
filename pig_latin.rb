@@ -6,24 +6,18 @@ def to_pig_latin(string)
     pigarray = []
     unchanged = ["i", "me", "to", "too", "a", "an", "in", "and", "on"]
     array.collect do |words|
-      
+
       if unchanged.include?(words)
           pigarray<< words
-      elsif words.start_with?("a", "e", "i", "u" "o")
-             word = words + 'ay'
-             pigarray << word
-             # binding.pry
-      else 
-        # binding.pry
-            indexpar = words.index(/[aeiou]/)
-            partial = words.partition(words[indexpar])
+      else
+            partial = words.partition(words[words.index(/[aeiou]/)])
             words = partial
             words[3] = words[0]
             words.shift
             words << 'ay'
-            
+
              pigarray << words.join
-            
+
         end
     end
     pigarray.join(' ')
